@@ -1,0 +1,88 @@
+<!-- partials/raid-cost.html -->
+<section id="raid-cost">
+  <h2>Rust Raid Cost</h2>
+
+  <!-- 1) Structure selection grid -->
+  <div id="targets-grid" class="grid"></div>
+
+  <!-- 2) Current Raid -->
+  <h3>Current Raid</h3>
+  <div id="material-images" class="current-raid"></div>
+  <div class="actions">
+    <button id="clear-all-button">Clear All</button>
+    <button id="undo-btn">Undo</button>
+  </div>
+
+  <!-- 3) Boom Needed -->
+  <h3>Boom Needed</h3>
+<div id="boom-needed">
+  <div id="rocket-holder">
+    <img src="images/Rocket.webp" alt="Rocket">
+    <span id="rocket-quantity">0</span>
+  </div>
+  <div id="c4-holder">
+    <img src="images/C4.webp" alt="C4">
+    <span id="c4-quantity">0</span>
+  </div>
+  <div id="explosive-ammo-holder">
+    <img src="images/ExplosiveAmmo.webp" alt="Explosive Ammo">
+    <span id="explosive-ammo-quantity">0</span>
+  </div>
+  <div id="molotov-holder">
+    <img src="images/Molotov.webp" alt="Molotov">
+    <span id="molotov-quantity">0</span>
+  </div>
+  <div id="beancan-grenade-holder">
+    <img src="images/Beancan.webp" alt="Beancan Grenade">
+    <span id="beancan-grenade-quantity">0</span>
+  </div>
+  <div id="satchel-charge-holder">
+    <img src="images/Satchel.webp" alt="Satchel Charge">
+    <span id="satchel-charge-quantity">0</span>
+  </div>
+  <div id="hv-rocket-holder">
+    <img src="images/HVRocket.webp" alt="HV Rocket">
+    <span id="hv-rocket-quantity">0</span>
+  </div>
+  <div id="f1-grenade-holder">
+    <img src="images/F1Grenade.webp" alt="F1 Grenade">
+    <span id="f1-grenade-quantity">0</span>
+  </div>
+  <div id="incendiary-rocket-holder">
+    <img src="images/IncendiaryRocket.webp" alt="Incendiary Rocket">
+    <span id="incendiary-rocket-quantity">0</span>
+  </div>
+</div>
+<button id="toggle-boom-button">Use Alternative Option</button>
+
+
+  <!-- 4) Material Cost -->
+  <h3>Material Cost</h3>
+  <div class="controls">
+    <button id="sulfur-only-button">Show Sulfur Only</button>
+  </div>
+  <div class="materials">
+    <div id="cloth-holder"            class="mat-item"><img src="images/Cloth.webp" alt="Cloth"><span id="cloth-quantity">0</span></div>
+    <div id="gun-powder-holder"      class="mat-item"><img src="images/GunPowder.webp" alt="Gun Powder"><span id="gun-powder-quantity">0</span></div>
+    <div id="low-grade-fuel-holder"  class="mat-item"><img src="images/LowGradeFuel.webp" alt="Low Grade Fuel"><span id="low-grade-fuel-quantity">0</span></div>
+    <div id="metal-fragments-holder" class="mat-item"><img src="images/MetalFragments.webp" alt="Metal Fragments"><span id="metal-fragments-quantity">0</span></div>
+    <div id="metal-pipe-holder"      class="mat-item"><img src="images/MetalPipe.webp" alt="Metal Pipe"><span id="metal-pipe-quantity">0</span></div>
+    <div id="rope-holder"            class="mat-item"><img src="images/Rope.webp" alt="Rope"><span id="rope-quantity">0</span></div>
+    <div id="sulfur-holder"          class="mat-item"><img src="images/Sulfur.webp" alt="Sulfur"><span id="sulfur-quantity">0</span></div>
+    <div id="tech-trash-holder"      class="mat-item"><img src="images/TechTrash.webp" alt="Tech Trash"><span id="tech-trash-quantity">0</span></div>
+  </div>
+
+  <!-- 5) Only Sulfur & Node Counter -->
+  <div id="only-sulfur-holder" class="only-sulfur">
+    Only Sulfur: <span id="only-sulfur-quantity">0</span>
+  </div>
+  <div id="node-counter" class="node-counter"></div>
+</section>
+
+<!-- Craft Calculator -->
+<section id="craft-section">
+  <h2>Craft Calculator</h2>
+  <ul id="craft-list"></ul>
+</section>
+
+

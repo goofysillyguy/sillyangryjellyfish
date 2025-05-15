@@ -1,0 +1,256 @@
+body {
+    background:#1d1f1f; /*rust dark grey*/
+    color: #e4dad1;
+    text-align:center;
+    font-family: "Open Sans", sans-serif;
+}
+
+p {
+    font-family: "Open Sans", sans-serif;
+    color: #e4dad1;
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+}
+
+h1 {
+font-size:5rem;
+line-height: 4.7rem;
+letter-spacing: 0.15rem;
+font-weight:500;
+}
+
+
+.card {
+    width:90%;
+    margin-left:5%;
+}
+
+.card-title {
+    background-color:#c73f2a; /*rust orange*/
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.card-button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    font-family: "Bebas Neue", sans-serif;
+    border-radius:0;
+    background-color:#1d1f1f;
+    color:#e4dad1;
+    border:none;
+    cursor:pointer;
+    margin-bottom:5px;
+}
+
+.card-button:hover {
+    background-color: #515151;
+    color: #e4dad1;
+}
+.card-body {
+    background: #3d3d3d;
+    padding: 5px 15px;
+}
+
+.input {
+    background-color: rgba(0,0,0,.2);
+    border: 2px solid transparent;
+    color: #e4dad1;
+    font-family: "Bebas Neue",sans-serif;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    min-width: 300px;
+}
+
+.material-image {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  margin: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.choose-material {
+    color:#ffffff;
+    font-family: "Bebas Neue",sans-serif;
+    font-size:1.5rem;
+    border: 2px solid #c73f2a;
+    line-height:1.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.remove-material {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+}
+
+.cost-holder {
+  position: relative;
+  display: inline-block;
+}
+
+.item-image {
+  width:100px;
+  height:100px;
+  background-size: cover;
+  margin: 10px;
+}
+
+.pointer:hover {
+  transform: scale(1.1);
+}
+
+.cost-quantity {
+  font-size:2em;
+  line-height:2em;
+  font-family: "Bebas Neue",sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#ffffff;
+}
+
+.x-text {
+  font-size: 0.7em;
+}
+
+.pointer {
+cursor: pointer;
+}
+
+
+.footer-text {
+font-size:12px;
+margin:0px 0px 5px 5px;
+color: #ffffff;
+}
+
+a.footer-text:hover {
+color: #858585;
+}
+
+a {
+text-decoration:none;
+color: #a6b0ff;
+}
+
+.title-text {
+color:#e4dad1;
+}
+
+.nav-link {
+    color:#e4dad1;
+    margin:0px 5px 0px 5px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.25rem;    
+}
+
+.nav-link:hover {
+    color:#ffffff;
+}
+
+.chart-image-div {
+position:relative;
+float:left;
+}
+
+.chart-span {
+display:inline-block;
+margin: 0em 2em 1.5em 2em;
+text-align:center;
+}
+
+.softside-text {
+font-size:1.2rem;
+}
+
+@media only screen and (max-width: 1114px) {
+.chart-image {
+width:70px;
+height:70px;
+}
+.chart-span {
+margin: 0em 1em 0.5em 1em;
+}
+}
+
+@media only screen and (max-width: 700px) {
+.chart-image {
+width:50px;
+height:50px;
+}
+.chart-span {
+margin: 0px 5px 0px 5px;
+}
+.material-name {
+font-size:1rem;
+line-height:1rem;
+}
+.softside-text {
+font-size:0.6rem;
+}
+}
+
+li {
+margin: 12px 12px 0px 0px;
+font-size:14px;
+}
+
+.is-hidden { 
+    display: none!important; 
+}
+
+.content {
+width:900px;
+text-align:left;
+max-width:100%;
+}
+
+#targets-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 10px;               
+  justify-items: center;
+  margin: 16px 0;
+  color: #000000;
+  border: 1px solid #a35c52
+}
+#targets-grid .grid-item button {
+  background-color: transparent;
+  border: 2px solid transparent;                
+  transition: background 0.2s;
+}
+
+#targets-grid .grid-item button:hover {
+  background-color: #515151;   /* a slightly lighter hover state */
+}
+
+/* tighten up the wipe timer headings */
+#raid h2 {
+  margin-bottom: 0.25em; /* pull the heading and first line closer */
+}
+#raid p {
+  margin: 0.125em 0;     /* small top/bottom margins */
+  line-height: 1.2;      /* optional: pull lines in even tighter */
+}
