@@ -24,7 +24,7 @@ export function initWipe() {
     if (timerEl) timerEl.textContent = `${days}d ${hrs}h ${mins}m ${secs}s`;
   }
 
-  // run immediately and every second
+ 
   computeNextWipe();
   setInterval(computeNextWipe, 1000);
 }

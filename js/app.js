@@ -1,4 +1,3 @@
-// js/app.js
 import { initWipe }    from './wipe.js';
 import { initRaid, renderCraft } from './raid.js';
 import { initCommits } from './commits.js';
@@ -25,7 +24,7 @@ tabs.forEach(btn => {
   });
 });
 
-// on load, default to "raid"
+
 window.addEventListener('DOMContentLoaded', () => {
   showTab('raid');
   initWipe();

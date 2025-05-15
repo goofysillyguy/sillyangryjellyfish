@@ -1,15 +1,13 @@
-// js/raid.js
 
-// —— 1) Shared State & Data —— //
 export const state = {
-  raidLog: [],            // sequence of clicked structures for Path section
-  explosiveCounts: {},    // populated by calculateRaidCost
-  materialsMap: {}        // populated by calculateRaidCost for Craft section
+  raidLog: [],            
+  explosiveCounts: {},    
+  materialsMap: {}        
 };
 
-let materials = [];       // array of { name, costType } objects
+let materials = [];     
 
-// 1a) Cost tables
+// Cost tables
 export const items_cheapcost = {
   "Wood":                         [{ explosive: 'Molotov',      quantity: 4 }],
   "Stone":                        [{ explosive: 'C4',           quantity: 2 }],
@@ -70,7 +68,7 @@ export const items_altcost = {
   "Workbench-Level-3":            [{ explosive: 'Incendiary_Rocket', quantity: 2 }]
 };
 
-// 1b) Icon filenames
+// Icon filenames
 const iconFiles = {
   "Wood":                      "WoodWall.webp",
   "Stone":                     "StoneWall.webp",
@@ -101,7 +99,7 @@ const iconFiles = {
   "Workbench-Level-3":         "WorkbenchLevel3.webp"
 };
 
-// 1c) Raw materials for explosives
+// Raw materials for explosives
 const explosives = {
   Molotov:           { cloth:10,  gun_powder:0,    low_grade_fuel:50,  metal_fragments:0, pipes:0, rope:0, sulfur:0, tech_trash:0 },
   Beancan:           { cloth:0,   gun_powder:60,   low_grade_fuel:0,   metal_fragments:20,pipes:0, rope:0, sulfur:0, tech_trash:0 },
@@ -116,7 +114,7 @@ const explosives = {
 
 const structureNames = Object.keys(iconFiles);
 
-// —— 2) Helpers —— //
+
 function displayMaterialImage(name) {
   const div = document.createElement('div');
   div.className = 'material-image';
@@ -141,7 +139,7 @@ function updateClearAllButtonVisibility() {
 }
 
 function calculateMaterialsAndExplosivesForWall(item) {
-  // item is { name, costType }
+ 
   const table = item.costType === 'Alt' ? items_altcost : items_cheapcost;
   const list = table[item.name] || [];
   const mats = {}, used = {};
@@ -164,11 +162,11 @@ function calculateRaidCost() {
     Object.entries(usedExplosives).forEach(([e, v]) => ex[e] = (ex[e]||0) + v);
   });
 
-  // store for Craft tab
+  
   state.materialsMap     = mats;
   state.explosiveCounts = ex;
 
-  // update Boom icons
+  // update boom icons
   [
     ['Rocket','rocket'],
     ['C4','c4'],
@@ -189,7 +187,7 @@ function calculateRaidCost() {
     }
   });
 
-  // update Material icons
+  // update craft icons
   [
     ['cloth','cloth'],
     ['gun_powder','gun-powder'],
@@ -209,7 +207,6 @@ function calculateRaidCost() {
     }
   });
 
-  // only-sulfur & node count
   const only = (mats.sulfur || 0) + (mats.gun_powder || 0) * 2;
   const osEl = document.getElementById('only-sulfur-quantity');
   const osH  = document.getElementById('only-sulfur-holder');
@@ -221,7 +218,6 @@ function calculateRaidCost() {
   }
 }
 
-// —— 3) Grid + Path + Craft Renderers —— //
 const altAllowed = new Set([
   'Wood','Stone','Metal','Armored','Garage-Door'
 ]);
@@ -235,7 +231,6 @@ export function renderGrid() {
     const cell = document.createElement('div');
     cell.className = 'grid-item';
 
-    // single big structure button (Cheap)
     const btn = document.createElement('button');
     btn.className = 'structure-btn';
     btn.innerHTML = `
@@ -244,7 +239,6 @@ export function renderGrid() {
     btn.onclick = () => addToMaterials(name, 'Cheap');
     cell.appendChild(btn);
 
-    // Alt button only for allowed names
     if (altAllowed.has(name)) {
       const alt = document.createElement('button');
       alt.className = 'alt-btn';
@@ -272,7 +266,7 @@ export function renderCraft() {
     .join('');
 }
 
-// —— 4) Add/Remove Helpers —— //
+
 function addToMaterials(name, costType) {
   materials.push({ name, costType });
   displayMaterialImage(name);
@@ -283,7 +277,6 @@ function addToMaterials(name, costType) {
 }
 
 function removeFromMaterials(name) {
-  // remove last matching entry
   for (let i = materials.length - 1; i >= 0; i--) {
     if (materials[i].name === name) {
       materials.splice(i, 1);
@@ -314,11 +307,19 @@ function undo() {
   state.raidLog.pop();
 }
 
-// —— 5) Initialization —— //
+// init
 export function initRaid() {
   renderGrid();
   calculateRaidCost();
   renderPath();
-  document.getElementById('clear-all-button').addEventListener('click', clearAllMaterials);
-  document.getElementById('undo-btn').addEventListener('click', undo);
+  const clearBtn = document.getElementById('clear-all-button');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', clearAllMaterials);
+  }
+
+  const undoBtn = document.getElementById('undo-btn');
+  if (undoBtn) {
+    undoBtn.addEventListener('click', undo);
+  }
 }
+
