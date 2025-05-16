@@ -214,7 +214,7 @@ function calculateRaidCost() {
   if (osEl && osH && nc) {
     osEl.textContent = only;
     osH.style.display = only > 0 ? 'inline-block' : 'none';
-    nc.textContent   = `On Vanilla servers, ~${Math.ceil(only/300)} sulfur nodes.`;
+    nc.textContent   = `On Vanilla servers: ~${Math.ceil(only/300)} sulfur nodes.`;
   }
 }
 
