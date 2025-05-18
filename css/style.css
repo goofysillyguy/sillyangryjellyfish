@@ -1,5 +1,5 @@
 body {
-    background:#1d1f1f; /*rust dark grey*/
+    background:#1d1f1f;
     color: #e4dad1;
     text-align:center;
     font-family: "Open Sans", sans-serif;
@@ -32,7 +32,7 @@ font-weight:500;
 }
 
 .card-title {
-    background-color:#c73f2a; /*rust orange*/
+    background-color:#c73f2a;
     font-family: "Bebas Neue", sans-serif;
     font-size: 1.25rem;
     padding: 0.5rem 1rem;
@@ -243,14 +243,13 @@ max-width:100%;
 }
 
 #targets-grid .grid-item button:hover {
-  background-color: #515151;   /* a slightly lighter hover state */
+  background-color: #515151;
 }
 
-/* tighten up the wipe timer headings */
 #raid h2 {
-  margin-bottom: 0.25em; /* pull the heading and first line closer */
+  margin-bottom: 0.25em;
 }
 #raid p {
-  margin: 0.125em 0;     /* small top/bottom margins */
-  line-height: 1.2;      /* optional: pull lines in even tighter */
+  margin: 0.125em 0;
+  line-height: 1.2; 
 }

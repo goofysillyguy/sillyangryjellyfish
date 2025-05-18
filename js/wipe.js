@@ -15,11 +15,9 @@ export function initWipe() {
           mins = Math.floor((diff % 3600000) / 60000),
           secs = Math.floor((diff % 60000) / 1000);
 
-    // get the elements once
     const dateEl = document.getElementById('wipe-date');
     const timerEl = document.getElementById('wipe-timer');
 
-    // only assign if they exist
     if (dateEl)  dateEl.textContent  = wipe.toLocaleString();
     if (timerEl) timerEl.textContent = `${days}d ${hrs}h ${mins}m ${secs}s`;
   }

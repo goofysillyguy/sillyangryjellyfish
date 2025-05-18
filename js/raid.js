@@ -266,7 +266,6 @@ export function renderCraft() {
     .join('');
 }
 
-
 function addToMaterials(name, costType) {
   materials.push({ name, costType });
   displayMaterialImage(name);
@@ -286,7 +285,7 @@ function removeFromMaterials(name) {
   removeMaterialImage(name);
   updateClearAllButtonVisibility();
   calculateRaidCost();
-  // also pop from raidLog
+
   const j = state.raidLog.lastIndexOf(name);
   if (j > -1) state.raidLog.splice(j, 1);
 }
