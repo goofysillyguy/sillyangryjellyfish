@@ -1,10 +1,11 @@
 html, body {
-    background: #1d1f1f;
+    background: #181818;
     color: #ffffff;
     text-align: center;
     font-family: "Open Sans", sans-serif;
     max-width: 100%;
     overflow-x: hidden;
+    background-color: #181818;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -142,6 +143,10 @@ h1 {
     display: inline-block;
 }
 
+
+.alt-btn {
+   border: 2px solid #aaa;
+}
 #commits-list {
     margin: 1.5rem auto;
     padding: 0;
