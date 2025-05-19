@@ -13,7 +13,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 5px 0;
 }
 
-
 h1 {
     font-size: 5rem;
     line-height: 4.7rem;
@@ -112,7 +111,7 @@ h1 {
 .tab-button {
     flex: 1;
     padding: 12px;
-    background: #f0f0f0;
+    background: #4a4b4a;
     color: #ffffff;
     border: none;
     padding: 12px;
@@ -126,7 +125,7 @@ h1 {
 }
 
 .tab-button.active {
-    background-color: #47f750;
+    background-color: #38c03f;
     color: #ffffff;
 }
 
