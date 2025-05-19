@@ -1,21 +1,14 @@
 body {
     background:#1d1f1f;
-    color: #e4dad1;
+    color: #ffffff;
     text-align:center;
     font-family: "Open Sans", sans-serif;
 }
 
-p {
-    font-family: "Open Sans", sans-serif;
+h1, h2, h3 h4, h5, h6 {
+    font-family: "Tahoma", sans-serif;
     color: #e4dad1;
-    line-height: 1.5rem;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 200;
+    margin: 0px 0px 5px 0px;
 }
 
 h1 {
@@ -25,206 +18,14 @@ letter-spacing: 0.15rem;
 font-weight:500;
 }
 
-
-.card {
-    width:90%;
-    margin-left:5%;
-}
-
-.card-title {
-    background-color:#c73f2a;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.25rem;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-}
-
-.card-button {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    font-family: "Bebas Neue", sans-serif;
-    border-radius:0;
-    background-color:#1d1f1f;
-    color:#e4dad1;
-    border:none;
-    cursor:pointer;
-    margin-bottom:5px;
-}
-
-.card-button:hover {
-    background-color: #515151;
-    color: #e4dad1;
-}
-.card-body {
-    background: #3d3d3d;
-    padding: 5px 15px;
-}
-
-.input {
-    background-color: rgba(0,0,0,.2);
-    border: 2px solid transparent;
-    color: #e4dad1;
-    font-family: "Bebas Neue",sans-serif;
-    font-size: 1.25rem;
-    padding: 0.5rem 1rem;
-    min-width: 300px;
-}
-
-.material-image {
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  margin: 10px;
-  display: inline-block;
-  position: relative;
-}
-
-.choose-material {
-    color:#ffffff;
-    font-family: "Bebas Neue",sans-serif;
-    font-size:1.5rem;
-    border: 2px solid #c73f2a;
-    line-height:1.4rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.remove-material {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 1.3rem;
-    font-weight: 600;
-    background: none;
-    border: none;
-    color: red;
-    cursor: pointer;
-    font-family: "Open Sans", sans-serif;
-}
-
-.cost-holder {
-  position: relative;
-  display: inline-block;
-}
-
-.item-image {
-  width:100px;
-  height:100px;
-  background-size: cover;
-  margin: 10px;
-}
-
-.pointer:hover {
-  transform: scale(1.1);
-}
-
-.cost-quantity {
-  font-size:2em;
-  line-height:2em;
-  font-family: "Bebas Neue",sans-serif;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color:#ffffff;
-}
-
-.x-text {
-  font-size: 0.7em;
-}
-
-.pointer {
-cursor: pointer;
-}
-
-
-.footer-text {
-font-size:12px;
-margin:0px 0px 5px 5px;
-color: #ffffff;
-}
-
-a.footer-text:hover {
-color: #858585;
-}
-
-a {
-text-decoration:none;
-color: #a6b0ff;
-}
-
-.title-text {
-color:#e4dad1;
-}
-
-.nav-link {
-    color:#e4dad1;
-    margin:0px 5px 0px 5px;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.25rem;    
-}
-
-.nav-link:hover {
-    color:#ffffff;
-}
-
-.chart-image-div {
-position:relative;
-float:left;
-}
-
-.chart-span {
-display:inline-block;
-margin: 0em 2em 1.5em 2em;
-text-align:center;
-}
-
-.softside-text {
-font-size:1.2rem;
-}
-
-@media only screen and (max-width: 1114px) {
-.chart-image {
-width:70px;
-height:70px;
-}
-.chart-span {
-margin: 0em 1em 0.5em 1em;
-}
-}
-
-@media only screen and (max-width: 700px) {
-.chart-image {
-width:50px;
-height:50px;
-}
-.chart-span {
-margin: 0px 5px 0px 5px;
-}
-.material-name {
-font-size:1rem;
-line-height:1rem;
-}
-.softside-text {
-font-size:0.6rem;
-}
-}
-
-li {
-margin: 12px 12px 0px 0px;
-font-size:14px;
-}
-
-.is-hidden { 
-    display: none!important; 
-}
-
-.content {
-width:900px;
-text-align:left;
-max-width:100%;
+.current-raid {
+  display: flex;
+  justify-content: center; 
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+  width: 100%;  
+  box-sizing: border-box;
 }
 
 #targets-grid {
@@ -233,8 +34,8 @@ max-width:100%;
   gap: 10px;               
   justify-items: center;
   margin: 16px 0;
-  color: #000000;
-  border: 1px solid #a35c52
+  color: #ffffff;
+  border: 1px solid #240501
 }
 #targets-grid .grid-item button {
   background-color: transparent;
@@ -246,10 +47,86 @@ max-width:100%;
   background-color: #515151;
 }
 
-#raid h2 {
-  margin-bottom: 0.25em;
+#raid .target {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
-#raid p {
-  margin: 0.125em 0;
-  line-height: 1.2; 
+
+.tab-button {
+  background: #646464;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-button:hover {
+  background-color: #020dac;
+  color: #fff;
+}
+
+.tab:active {
+  background-color: #028dff;
+  color: #fff;
+}
+.tab-button.active {
+  background-color: #028dff;
+  color: #fff;
+}
+
+.tab-content h2,
+.tab-content h3 {
+  border-bottom: 2px solid #00aeff;
+  margin-bottom: 1.5rem;
+}
+
+#commits-list {
+  margin: 1.5rem auto;
+  padding: 0;          
+  list-style: none;
+}
+
+#commits-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #444;
+}
+
+#commits-list li:last-child {
+  border-bottom: none;
+}
+
+#commits-list li .message {
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+#commits-list li .meta {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.2;
+}
+
+section#commits {
+  padding: 2rem 1rem;
+  background: #1a1a1a;
+}
+
+section#commits h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #424242;
+  padding-bottom: 0.5rem;
+}
+
+#commits-list li:nth-child(even) {
+  background: rgba(255,255,255,0.03);
 }
