@@ -5,21 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Rust Assistant</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <style>
-    .grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
-    .grid-item { text-align: center; }
-    .structure-btn img { width: 64px; height: 64px; display: block; margin: 0 auto; }
-    .structure-btn, .alt-btn { display: block; margin: 4px auto; }
-    .res-item, .mat-item { display: inline-block; text-align: center; margin: 4px; }
-    .res-item img, .mat-item img { width: 48px; height: 48px; }
-    .current-raid { display: flex; gap: 8px; margin: 8px 0; }
-    .current-raid .material-image { position: relative; width: 64px; height: 64px; background-size: cover; }
-    .current-raid .remove-material { position: absolute; top: 0; right: 0; background: rgba(0,0,0,0.6); color: #fff; border:none; cursor:pointer; }
-    .tab-content { padding: 16px; }
-    .tabs { display:flex; background:#222; }
-    .tab-button { flex:1; padding:12px; color:#fff; background:#333; border:none; cursor:pointer; }
-    .tab-button.active { background:#444; }
-  </style>
+
 <link rel="icon" href="/appicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/appicon.ico" type="image/x-icon">
 
@@ -39,16 +25,23 @@
     <section id="raid" class="tab-content">
        <h2>Wipe Timer</h2>
        <p>Next wipe: <span id="wipe-date">—</span></p>
-      <p>Remaining: <span id="wipe-timer">—</span></p>
+       <p>Remaining: <span id="wipe-timer">—</span></p>
       <div id="wipe-timer-section"></div>
 
       <h2>Select your targets</h2>
       <div id="targets-grid" class="grid"></div>
 
       <h3>Current Raid Path</h3>
-      <div id="material-images" class="current-raid"></div>
-      <button id="clear-all-button">Clear All</button>
+        <div class="raid-path-section">
+          <div class="current-raid-wrapper">
+            <div id="material-images" class="current-raid"></div>
+          </div>
+          <button id="clear-all-button">Clear All</button>
+</div>
+      </div>
       
+      
+
       <h3>Explosives Required</h3>
       <div class="explosives">
         <div id="rocket-holder"            class="res-item"><img src="images/Rocket.webp" alt=""><span id="rocket-quantity">0</span></div>

@@ -2,6 +2,12 @@ import { initWipe }    from './wipe.js';
 import { initRaid, renderCraft } from './raid.js';
 import { initCommits } from './commits.js';
 
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+  document.getElementById('targets-grid').style.gridTemplateColumns = 'repeat(auto-fill, minmax(80px, 1fr))';
+}
+
 const tabs     = document.querySelectorAll('.tab-button');
 const sections = document.querySelectorAll('.tab-content');
 

@@ -22,7 +22,6 @@ export function initWipe() {
     if (timerEl) timerEl.textContent = `${days} Days, ${hrs} Hours, ${mins} Minutes, ${secs} Seconds`;
   }
 
- 
   computeNextWipe();
   setInterval(computeNextWipe, 1000);
 }

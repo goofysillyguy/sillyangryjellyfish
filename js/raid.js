@@ -5,7 +5,12 @@ export const state = {
   materialsMap: {}        
 };
 
+const materialImages = document.getElementById("material-images");
+const clearBtn = document.getElementById("clear-all-button");
+
+
 let materials = [];     
+
 
 export const items_cheapcost = {
   "Wood":                         [{ explosive: 'Molotov',      quantity: 4 }],
@@ -131,9 +136,14 @@ function removeMaterialImage(name) {
 }
 
 function updateClearAllButtonVisibility() {
-  const has = materials.length > 0;
-  document.getElementById('clear-all-button').style.display = has ? 'inline-block' : 'none';
+  const imagesContainer = document.getElementById('material-images');
+  const wrapper = document.querySelector('.current-raid-wrapper');
+  const hasMaterials = imagesContainer.querySelectorAll('.material-image').length > 0;
+
+  document.getElementById('clear-all-button').style.display = hasMaterials ? 'inline-block' : 'none';
+  wrapper.style.display = hasMaterials ? 'flex' : 'none';
 }
+
 
 function calculateMaterialsAndExplosivesForWall(item) {
  
@@ -304,13 +314,11 @@ export function initRaid() {
   renderGrid();
   calculateRaidCost();
   renderPath();
+  updateClearAllButtonVisibility();
+
   const clearBtn = document.getElementById('clear-all-button');
   if (clearBtn) {
     clearBtn.addEventListener('click', clearAllMaterials);
   }
 
-  const undoBtn = document.getElementById('undo-btn');
-  if (undoBtn) {
-    undoBtn.addEventListener('click', undo);
-  }
 }
