@@ -320,5 +320,4 @@ export function initRaid() {
   if (clearBtn) {
     clearBtn.addEventListener('click', clearAllMaterials);
   }
-
 }
