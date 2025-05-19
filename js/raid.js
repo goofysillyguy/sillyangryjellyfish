@@ -7,7 +7,6 @@ export const state = {
 
 let materials = [];     
 
-// Cost tables
 export const items_cheapcost = {
   "Wood":                         [{ explosive: 'Molotov',      quantity: 4 }],
   "Stone":                        [{ explosive: 'C4',           quantity: 2 }],
@@ -68,7 +67,6 @@ export const items_altcost = {
   "Workbench-Level-3":            [{ explosive: 'Incendiary_Rocket', quantity: 2 }]
 };
 
-// Icon filenames
 const iconFiles = {
   "Wood":                      "WoodWall.webp",
   "Stone":                     "StoneWall.webp",
@@ -99,7 +97,6 @@ const iconFiles = {
   "Workbench-Level-3":         "WorkbenchLevel3.webp"
 };
 
-// Raw materials for explosives
 const explosives = {
   Molotov:           { cloth:10,  gun_powder:0,    low_grade_fuel:50,  metal_fragments:0, pipes:0, rope:0, sulfur:0, tech_trash:0 },
   Beancan:           { cloth:0,   gun_powder:60,   low_grade_fuel:0,   metal_fragments:20,pipes:0, rope:0, sulfur:0, tech_trash:0 },
@@ -155,7 +152,6 @@ function calculateRaidCost() {
   const mats = { cloth:0, gun_powder:0, low_grade_fuel:0, metal_fragments:0, pipes:0, rope:0, sulfur:0, tech_trash:0 };
   const ex  = {};
 
-  // accumulate over materials[]
   materials.forEach(item => {
     const { materials: mm, usedExplosives } = calculateMaterialsAndExplosivesForWall(item);
     Object.entries(mm).forEach(([k, v]) => mats[k] += v);
@@ -166,7 +162,6 @@ function calculateRaidCost() {
   state.materialsMap     = mats;
   state.explosiveCounts = ex;
 
-  // update boom icons
   [
     ['Rocket','rocket'],
     ['C4','c4'],
@@ -187,7 +182,6 @@ function calculateRaidCost() {
     }
   });
 
-  // update craft icons
   [
     ['cloth','cloth'],
     ['gun_powder','gun-powder'],
@@ -306,7 +300,6 @@ function undo() {
   state.raidLog.pop();
 }
 
-// init
 export function initRaid() {
   renderGrid();
   calculateRaidCost();
@@ -321,4 +314,3 @@ export function initRaid() {
     undoBtn.addEventListener('click', undo);
   }
 }
-
