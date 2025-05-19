@@ -71,6 +71,24 @@ h1 {
     border-radius: 6px 6px 6px 6px;
 }
 
+@media (max-width: 1200px) {
+  #targets-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  #targets-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #targets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 #targets-grid .grid-item button {
     background-color: transparent;
     border: 2px solid transparent;
