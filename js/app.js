@@ -24,7 +24,6 @@ tabs.forEach(btn => {
   });
 });
 
-
 window.addEventListener('DOMContentLoaded', () => {
   showTab('raid');
   initWipe();

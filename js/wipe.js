@@ -19,7 +19,7 @@ export function initWipe() {
     const timerEl = document.getElementById('wipe-timer');
 
     if (dateEl)  dateEl.textContent  = wipe.toLocaleString();
-    if (timerEl) timerEl.textContent = `${days}d ${hrs}h ${mins}m ${secs}s`;
+    if (timerEl) timerEl.textContent = `${days} Days, ${hrs} Hours, ${mins} Minutes, ${secs} Seconds`;
   }
 
  
