@@ -116,17 +116,13 @@ const explosives = {
 
 const structureNames = Object.keys(iconFiles);
 
-
 function displayMaterialImage(name) {
   const div = document.createElement('div');
   div.className = 'material-image';
   div.dataset.material = name;
   div.style.backgroundImage = `url(images/${iconFiles[name]})`;
-  const btn = document.createElement('button');
-  btn.className = 'remove-material';
-  btn.textContent = '×';
-  btn.onclick = () => removeFromMaterials(name);
-  div.appendChild(btn);
+  div.addEventListener('click', () => removeFromMaterials(name));
+  
   document.getElementById('material-images').appendChild(div);
 }
 
@@ -144,9 +140,7 @@ function updateClearAllButtonVisibility() {
   wrapper.style.display = hasMaterials ? 'flex' : 'none';
 }
 
-
 function calculateMaterialsAndExplosivesForWall(item) {
- 
   const table = item.costType === 'Alt' ? items_altcost : items_cheapcost;
   const list = table[item.name] || [];
   const mats = {}, used = {};
@@ -168,7 +162,6 @@ function calculateRaidCost() {
     Object.entries(usedExplosives).forEach(([e, v]) => ex[e] = (ex[e]||0) + v);
   });
 
-  
   state.materialsMap     = mats;
   state.explosiveCounts = ex;
 
@@ -191,7 +184,7 @@ function calculateRaidCost() {
       hEl.style.display =  'inline-block';
     }
   });
-
+  
   [
     ['cloth','cloth'],
     ['gun_powder','gun-powder'],
