@@ -14,18 +14,43 @@ header {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
     font-family: "Tahoma", sans-serif;
     color: #e4dad1;
     margin: 0 0 5px 0;
+    font-weight: 100;
 }
 
 h1 {
+    font-family: "Tahoma", sans-serif;
+    color: #e4dad1;
     font-size: 5rem;
     line-height: 4.7rem;
     letter-spacing: 0.15rem;
     font-weight: 500;
+    text-shadow: 
+      0 0 5px #00ff22,     /* Soft inner glow */
+      0 0 10px #00ff0d,    /* Outer glow */
+      0 0 30px #00ff15;    /* Bigger outer glow */
+    
 }
+
+@keyframes glowPulse {
+  0%   { text-shadow: 0 0 5px #00ff62, 0 0 10px #00ff62, 0 0 20px #00ff62; }
+  50%  { text-shadow: 0 0 10px #00ff62, 0 0 20px #00ff62, 0 0 40px #00ff62; }
+  100% { text-shadow: 0 0 5px #00ff62, 0 0 10px #00ff62, 0 0 20px #00ff62; }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #aaa;
+  margin-top: 10px;
+  text-shadow: 0 0 6px rgba(0, 255, 98, 0.3);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px #00ff0d;
+}
+
 
 .current-raid {
     display: flex;
@@ -335,4 +360,32 @@ section#commits h2 {
   margin: 0 auto 12px auto;
   color: #ffffff;
   padding: 4px 0;
+}
+
+.bottom-secret {
+  background-color: transparent;
+  background: none;
+  position: fixed;
+  bottom: 4px;
+  left: 8px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  user-select: none;
+  font-family: monospace;
+  z-index: 9999;
+}
+
+.bottom-secret2 {
+  background-color: transparent;
+  background: none;
+  position: fixed;
+  bottom: 4px;
+  right: 8px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  user-select: none;
+  font-family: monospace;
+  z-index: 9999;
 }
