@@ -25,24 +25,30 @@
   <main>
     <section id="raid" class="tab-content">
        <h2>Wipe Timer</h2>
-       <p>Next wipe: <span id="wipe-date">—</span></p>
-       <p>Remaining: <span id="wipe-timer">—</span></p>
+      <p class="wipe-info-line">
+        Next wipe: <span id="wipe-date">—</span> |
+        Remaining: <span id="wipe-timer">—</span>
+      </p>
+
       <div id="wipe-timer-section"></div>
 
       <h2>Select your targets</h2>
       <div id="targets-grid" class="grid"></div>
 
-      <h3>Current Raid Path</h3>
+      <h3>Raid Path</h3>
         <div class="raid-path-section">
           <div class="current-raid-wrapper">
             <div id="material-images" class="current-raid"></div>
           </div>
           <button id="clear-all-button">Clear All</button>
 </div>
-      </div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin: 12px 0;">
-      <h3>Explosives Required</h3>
-      <button id="copy-explosives-button">📋 Copy</button>
-      
+      <h3 class="explosives-title">Current Explosives Required</h3>
+        <div class="explosives-copy-button-wrapper">
+          <button id="copy-explosives-button">📋 Copy</button>
+      </div>
+
+
+
       <div class="explosives">
         <div id="rocket-holder"            class="res-item"><img src="images/Rocket.webp" alt=""><span id="rocket-quantity">0</span></div>
         <div id="c4-holder"                class="res-item"><img src="images/C4.webp"    alt=""><span id="c4-quantity">0</span></div>
@@ -55,7 +61,7 @@
         <div id="incendiary-rocket-holder" class="res-item"><img src="images/IncendiaryRocket.webp" alt=""><span id="incendiary-rocket-quantity">0</span></div>
       </div>
 
-      <h3>Crafting Cost</h3>
+      <h3>Components and Resources required for crafting</h3>
       <div class="materials">
         <div id="cloth-holder"            class="mat-item"><img src="images/Cloth.webp" alt=""><span id="cloth-quantity">0</span></div>
         <div id="gun-powder-holder"       class="mat-item"><img src="images/GunPowder.webp" alt=""><span id="gun-powder-quantity">0</span></div>
@@ -76,6 +82,7 @@
       <ul id="commits-list">Loading…</ul>
     </section>
   </main>
+
 
   <script type="module" src="js/app.js"></script>
 </body>

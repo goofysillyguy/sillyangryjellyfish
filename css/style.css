@@ -8,6 +8,12 @@ html, body {
     background-color: #181818;
 }
 
+header {
+  background: linear-gradient(135deg, #111 0%, #1a2a1a 100%);
+  box-shadow: 0 0 10px rgba(0, 255, 98, 0.2);
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "Tahoma", sans-serif;
     color: #e4dad1;
@@ -278,8 +284,22 @@ section#commits h2 {
   cursor:pointer;
 }
 
+.explosives-header-noflex {
+  text-align: center;
+  margin: 16px auto;
+  white-space: nowrap;
+}
+
+.explosives-title {
+  display: inline-block;
+  margin: 0;
+  padding: 0 8px 4px 0;
+  border-bottom: 2px solid #00ff62;
+  vertical-align: middle;
+}
+
 #copy-explosives-button {
-  padding: 6px 12px;
+  padding: 6px 6px;
   background-color: #38c03fbd;
   color: white;
   border: none;
@@ -287,6 +307,7 @@ section#commits h2 {
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 20px;
 }
 
 #copy-explosives-button:hover {
@@ -303,8 +324,16 @@ section#commits h2 {
   font-weight: bold;
   pointer-events: none;
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transform: translateY(2);
+  transition: opacity 2s ease-out, transform 2s ease-out;
   z-index: 9999;
   font-size: 0.9rem;
+}
+
+.wipe-info-line {
+  text-align: center;
+  margin: 0 auto 12px auto;
+
+  color: #ffffff;
+  padding: 4px 0;
 }
