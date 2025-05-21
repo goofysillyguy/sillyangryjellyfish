@@ -90,6 +90,15 @@ tabs.forEach(btn => {
   });
 });
 
+function animatePopEffect(elementId) {
+  const element = document.querySelector(`#${elementId} img`);
+  if (!element) return;
+
+  element.classList.remove('pop-effect');
+  void element.offsetWidth; 
+  element.classList.add('pop-effect');
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   showTab('raid');
   initWipe();

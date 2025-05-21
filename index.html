@@ -6,26 +6,24 @@
   <meta name="color-scheme" content="dark">
   <title>Rust Assistant</title>
   <link rel="stylesheet" href="css/style.css"/>
-
-<link rel="icon" href="/appicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/appicon.ico" type="image/x-icon">
-
+  <link rel="icon" href="/appicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/appicon.ico" type="image/x-icon">
 </head>
 <body>
 
-  <header style="background:#000000; color:#fff; padding:12px; text-align:center">
+  <header>
     <h1>Rust Assistant</h1>
     <p class="subtitle">A tool to help in planning raids and raid crafting calculations</p>
   </header>
 
   <nav class="tabs">
-    <button data-tab="raid"   class="tab-button active">Raid</button>
+    <button data-tab="raid" class="tab-button active">Raid</button>
     <button data-tab="commits" class="tab-button">Commits</button>
   </nav>
 
   <main>
     <section id="raid" class="tab-content">
-       <h2>Wipe Timer</h2>
+      <h2 class="section-title">Wipe Timer</h2>
       <p class="wipe-info-line">
         Next wipe: <span id="wipe-date">—</span> |
         Remaining: <span id="wipe-timer">—</span>
@@ -33,59 +31,59 @@
 
       <div id="wipe-timer-section"></div>
 
-      <h2>Select your targets</h2>
+      <h2 class="section-title">Select your targets</h2>
       <div id="targets-grid" class="grid"></div>
 
-      <h3>Raid Path</h3>
-        <div class="raid-path-section">
-          <div class="current-raid-wrapper">
-            <div id="material-images" class="current-raid"></div>
-          </div>
-          <button id="clear-all-button">Clear All</button>
-</div>
-      <h3 class="explosives-title">Current Explosives Required</h3>
-        <div class="explosives-copy-button-wrapper">
-          <button id="copy-explosives-button">📋 Copy</button>
+      <h3 class="section-title">Current Raid Path</h3>
+      <div class="raid-path-section">
+        <div class="current-raid-wrapper">
+          <span id="no-materials-placeholder">There are no targets selected yet.</span>
+          <div id="material-images" class="current-raid"></div>
+        </div>
+        <button id="clear-all-button">Clear All</button>
       </div>
 
-
+      <h3 class="section-title">Current Explosives Required</h3>
+      <div class="explosives-copy-button-wrapper">
+        <button id="copy-explosives-button">📋 Copy</button>
+      </div>
 
       <div class="explosives">
-        <div id="rocket-holder"            class="res-item"><img src="images/Rocket.webp" alt=""><span id="rocket-quantity">0</span></div>
-        <div id="c4-holder"                class="res-item"><img src="images/C4.webp"    alt=""><span id="c4-quantity">0</span></div>
-        <div id="explosive-ammo-holder"    class="res-item"><img src="images/Explosive-Ammo.webp" alt=""><span id="explosive-ammo-quantity">0</span></div>
-        <div id="molotov-holder"           class="res-item"><img src="images/Molotov.webp" alt=""><span id="molotov-quantity">0</span></div>
-        <div id="beancan-grenade-holder"   class="res-item"><img src="images/Beancan.webp" alt=""><span id="beancan-grenade-quantity">0</span></div>
-        <div id="satchel-charge-holder"    class="res-item"><img src="images/Satchel.webp" alt=""><span id="satchel-charge-quantity">0</span></div>
-        <div id="hv-rocket-holder"         class="res-item"><img src="images/HVRocket.webp" alt=""><span id="hv-rocket-quantity">0</span></div>
-        <div id="f1-grenade-holder"        class="res-item"><img src="images/F1Grenade.webp" alt=""><span id="f1-grenade-quantity">0</span></div>
+        <div id="rocket-holder" class="res-item"><img src="images/Rocket.webp" alt=""><span id="rocket-quantity">0</span></div>
+        <div id="c4-holder" class="res-item"><img src="images/C4.webp" alt=""><span id="c4-quantity">0</span></div>
+        <div id="explosive-ammo-holder" class="res-item"><img src="images/Explosive-Ammo.webp" alt=""><span id="explosive-ammo-quantity">0</span></div>
+        <div id="molotov-holder" class="res-item"><img src="images/Molotov.webp" alt=""><span id="molotov-quantity">0</span></div>
+        <div id="beancan-grenade-holder" class="res-item"><img src="images/Beancan.webp" alt=""><span id="beancan-grenade-quantity">0</span></div>
+        <div id="satchel-charge-holder" class="res-item"><img src="images/Satchel.webp" alt=""><span id="satchel-charge-quantity">0</span></div>
+        <div id="hv-rocket-holder" class="res-item"><img src="images/HVRocket.webp" alt=""><span id="hv-rocket-quantity">0</span></div>
+        <div id="f1-grenade-holder" class="res-item"><img src="images/F1Grenade.webp" alt=""><span id="f1-grenade-quantity">0</span></div>
         <div id="incendiary-rocket-holder" class="res-item"><img src="images/IncendiaryRocket.webp" alt=""><span id="incendiary-rocket-quantity">0</span></div>
       </div>
 
-      <h3>Components and Resources required for crafting</h3>
+      <h3 class="section-title">Components and Resources required for crafting</h3>
       <div class="materials">
-        <div id="cloth-holder"            class="mat-item"><img src="images/Cloth.webp" alt=""><span id="cloth-quantity">0</span></div>
-        <div id="gun-powder-holder"       class="mat-item"><img src="images/GunPowder.webp" alt=""><span id="gun-powder-quantity">0</span></div>
-        <div id="low-grade-fuel-holder"   class="mat-item"><img src="images/Low-Grade-Fuel.webp" alt=""><span id="low-grade-fuel-quantity">0</span></div>
-        <div id="metal-fragments-holder"  class="mat-item"><img src="images/MetalFragments.webp" alt=""><span id="metal-fragments-quantity">0</span></div>
-        <div id="metal-pipe-holder"       class="mat-item"><img src="images/MetalPipe.webp" alt=""><span id="metal-pipe-quantity">0</span></div>
-        <div id="rope-holder"             class="mat-item"><img src="images/Rope.webp" alt=""><span id="rope-quantity">0</span></div>
-        <div id="sulfur-holder"           class="mat-item"><img src="images/Sulfur.webp" alt=""><span id="sulfur-quantity">0</span></div>
-        <div id="tech-trash-holder"       class="mat-item"><img src="images/TechTrash.webp" alt=""><span id="tech-trash-quantity">0</span></div>
+        <div id="cloth-holder" class="mat-item"><img src="images/Cloth.webp" alt=""><span id="cloth-quantity">0</span></div>
+        <div id="gun-powder-holder" class="mat-item"><img src="images/GunPowder.webp" alt=""><span id="gun-powder-quantity">0</span></div>
+        <div id="low-grade-fuel-holder" class="mat-item"><img src="images/Low-Grade-Fuel.webp" alt=""><span id="low-grade-fuel-quantity">0</span></div>
+        <div id="metal-fragments-holder" class="mat-item"><img src="images/MetalFragments.webp" alt=""><span id="metal-fragments-quantity">0</span></div>
+        <div id="metal-pipe-holder" class="mat-item"><img src="images/MetalPipe.webp" alt=""><span id="metal-pipe-quantity">0</span></div>
+        <div id="rope-holder" class="mat-item"><img src="images/Rope.webp" alt=""><span id="rope-quantity">0</span></div>
+        <div id="sulfur-holder" class="mat-item"><img src="images/Sulfur.webp" alt=""><span id="sulfur-quantity">0</span></div>
+        <div id="tech-trash-holder" class="mat-item"><img src="images/TechTrash.webp" alt=""><span id="tech-trash-quantity">0</span></div>
       </div>
 
       <div id="only-sulfur-holder">Only Sulfur: <span id="only-sulfur-quantity">0</span></div>
       <div id="node-counter"></div>
-      
     </section>
-    <p class="bottom-secret">Rust devs are watching... 👀</p>
-    <p class="bottom-secret2">John is beautiful</p>
+
     <section id="commits" class="tab-content" style="display:none">
-      <h2>Commits</h2>
+      <h2 class="section-title">Commits</h2>
       <ul id="commits-list">Loading…</ul>
     </section>
-  </main>
 
+    <p class="bottom-secret">Rust devs are watching... 👀</p>
+    <p class="bottom-secret2">John is beautiful</p>
+  </main>
 
   <script type="module" src="js/app.js"></script>
 </body>

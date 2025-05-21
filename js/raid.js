@@ -133,11 +133,18 @@ function removeMaterialImage(name) {
 
 function updateClearAllButtonVisibility() {
   const imagesContainer = document.getElementById('material-images');
-  const wrapper = document.querySelector('.current-raid-wrapper');
+  const placeholder = document.getElementById('no-materials-placeholder');
+  const clearBtn = document.getElementById('clear-all-button');
+
   const hasMaterials = imagesContainer.querySelectorAll('.material-image').length > 0;
 
-  document.getElementById('clear-all-button').style.display = hasMaterials ? 'inline-block' : 'none';
-  wrapper.style.display = hasMaterials ? 'flex' : 'none';
+  if (placeholder) {
+    placeholder.style.display = hasMaterials ? 'none' : 'block';
+  }
+
+  if (clearBtn) {
+    clearBtn.style.display = hasMaterials ? 'inline-block' : 'none';
+  }
 }
 
 function calculateMaterialsAndExplosivesForWall(item) {
@@ -152,68 +159,88 @@ function calculateMaterialsAndExplosivesForWall(item) {
   return { materials: mats, usedExplosives: used };
 }
 
+function triggerPopEffect(holderId) {
+  const holder = document.getElementById(holderId);
+  if (!holder) return;
+
+  holder.classList.remove('pop-effect');
+  void holder.offsetWidth;
+  holder.classList.add('pop-effect');
+}
+
 function calculateRaidCost() {
-  const mats = { cloth:0, gun_powder:0, low_grade_fuel:0, metal_fragments:0, pipes:0, rope:0, sulfur:0, tech_trash:0 };
-  const ex  = {};
+  const mats = { cloth: 0, gun_powder: 0, low_grade_fuel: 0, metal_fragments: 0, pipes: 0, rope: 0, sulfur: 0, tech_trash: 0 };
+  const ex = {};
 
   materials.forEach(item => {
     const { materials: mm, usedExplosives } = calculateMaterialsAndExplosivesForWall(item);
     Object.entries(mm).forEach(([k, v]) => mats[k] += v);
-    Object.entries(usedExplosives).forEach(([e, v]) => ex[e] = (ex[e]||0) + v);
+    Object.entries(usedExplosives).forEach(([e, v]) => ex[e] = (ex[e] || 0) + v);
   });
 
-  state.materialsMap     = mats;
+  state.materialsMap = mats;
   state.explosiveCounts = ex;
 
   [
-    ['Rocket','rocket'],
-    ['C4','c4'],
-    ['Explosive_Ammo','explosive-ammo'],
-    ['Molotov','molotov'],
-    ['Beancan','beancan-grenade'],
-    ['Satchel','satchel-charge'],
-    ['HV_Rocket','hv-rocket'],
-    ['F1_Grenade','f1-grenade'],
-    ['Incendiary_Rocket','incendiary-rocket']
-  ].forEach(([key,id])=>{
+    ['Rocket', 'rocket'],
+    ['C4', 'c4'],
+    ['Explosive_Ammo', 'explosive-ammo'],
+    ['Molotov', 'molotov'],
+    ['Beancan', 'beancan-grenade'],
+    ['Satchel', 'satchel-charge'],
+    ['HV_Rocket', 'hv-rocket'],
+    ['F1_Grenade', 'f1-grenade'],
+    ['Incendiary_Rocket', 'incendiary-rocket']
+  ].forEach(([key, id]) => {
     const qty = ex[key] || 0;
     const qEl = document.getElementById(`${id}-quantity`);
     const hEl = document.getElementById(`${id}-holder`);
     if (qEl && hEl) {
-      qEl.textContent = qty;
-      hEl.style.display =  'inline-block';
+      if (qEl.textContent != qty) {
+        qEl.textContent = qty;
+        triggerPopEffect(`${id}-holder`);
+      }
+      hEl.style.display = 'inline-block';
     }
   });
-  
+
   [
-    ['cloth','cloth'],
-    ['gun_powder','gun-powder'],
-    ['low_grade_fuel','low-grade-fuel'],
-    ['metal_fragments','metal-fragments'],
-    ['pipes','metal-pipe'],
-    ['rope','rope'],
-    ['sulfur','sulfur'],
-    ['tech_trash','tech-trash']
-  ].forEach(([k,id])=>{
+    ['cloth', 'cloth'],
+    ['gun_powder', 'gun-powder'],
+    ['low_grade_fuel', 'low-grade-fuel'],
+    ['metal_fragments', 'metal-fragments'],
+    ['pipes', 'metal-pipe'],
+    ['rope', 'rope'],
+    ['sulfur', 'sulfur'],
+    ['tech_trash', 'tech-trash']
+  ].forEach(([k, id]) => {
     const qty = mats[k] || 0;
     const qEl = document.getElementById(`${id}-quantity`);
     const hEl = document.getElementById(`${id}-holder`);
     if (qEl && hEl) {
-      qEl.textContent = qty;
+      if (qEl.textContent != qty) {
+        qEl.textContent = qty;
+        triggerPopEffect(`${id}-holder`);
+      }
       hEl.style.display = 'inline-block';
     }
   });
 
   const only = (mats.sulfur || 0) + (mats.gun_powder || 0) * 2;
   const osEl = document.getElementById('only-sulfur-quantity');
-  const osH  = document.getElementById('only-sulfur-holder');
-  const nc   = document.getElementById('node-counter');
+  const osH = document.getElementById('only-sulfur-holder');
+  const nc = document.getElementById('node-counter');
+
   if (osEl && osH && nc) {
-    osEl.textContent = only;
+    if (osEl.textContent != only) {
+      osEl.textContent = only;
+      triggerPopEffect('only-sulfur-holder');
+    }
     osH.style.display = only > 0 ? 'inline-block' : 'none';
-    nc.textContent   = `On Vanilla servers: ~${Math.ceil(only/300)} sulfur nodes.`;
+    nc.textContent = `On Vanilla servers: ~${Math.ceil(only / 300)} sulfur nodes.`;
   }
 }
+
 
 const altAllowed = new Set([
   'Wood','Stone','Metal','Armored','Garage-Door'
