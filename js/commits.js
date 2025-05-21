@@ -22,6 +22,7 @@ export async function initCommits() {
   loaderEl.style.display = 'block';
   loaderEl.style.opacity = '1';
 
+  
   try {
     const proxy = 'https://api.allorigins.win/raw?url=' +
       encodeURIComponent('https://commits.facepunch.com/?format=json');
