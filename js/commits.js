@@ -70,11 +70,14 @@ export async function initCommits() {
 
     }).join('');
 
-    loaderEl.style.opacity = '0';
     setTimeout(() => {
-      loaderEl.style.display = 'none';
-      listEl.style.display = 'block';
-    }, 500);
+      loaderEl.style.opacity = '0';
+      setTimeout(() => {
+        loaderEl.style.display = 'none';
+        listEl.style.display = 'block';
+      }, 500);
+    }, 500); 
+
 
   } catch (err) {
     console.error("Failed to load commits:", err);
