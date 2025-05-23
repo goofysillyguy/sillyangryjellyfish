@@ -1,6 +1,7 @@
 import { initWipe }    from './wipe.js';
 import { initRaid, renderCraft } from './raid.js';
 import { initCommits } from './commits.js';
+import { state } from './raid.js';
 
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 

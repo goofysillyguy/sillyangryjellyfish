@@ -209,7 +209,6 @@ header {
   cursor: pointer;
 }
 
-/* Buttons */
 #clear-all-button {
   align-self: center;
   margin-top: 8px;
@@ -335,6 +334,79 @@ header {
   z-index: 9999;
   font-size: 0.9rem;
 }
+
+
+/* Server result buttons styling */
+.server-search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#server-search-input {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 2px solid #2ecc71;
+  border-radius: 5px;
+  outline: none;
+}
+
+#server-search-input::placeholder {
+  color: #777;
+}
+
+#search-server-button:hover {
+  background-color: #27ae60;
+  box-shadow: 0 0 10px #2ecc71;
+  transform: scale(1.05);
+}
+
+#search-server-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2ecc71;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.server-button {
+  background-color: #1f1f1f;
+  color: #a5f2af;
+  border: 2px solid #2ecc71;
+  border-radius: 5px;
+  padding: 10px 16px;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.server-button:hover {
+  background-color: #2ecc71;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #2ecc71;
+}
+
+
+#search-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+
+
 
 /* Commits Section */
 #commits-list {

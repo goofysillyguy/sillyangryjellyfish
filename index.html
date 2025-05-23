@@ -18,6 +18,7 @@
 
   <nav class="tabs">
     <button data-tab="raid" class="tab-button active">Raid</button>
+    <button data-tab="servers" class="tab-button">Servers</button>
     <button data-tab="commits" class="tab-button">Commits</button>
   </nav>
 
@@ -76,6 +77,23 @@
       <div id="node-counter"></div>
     </section>
 
+    <section id="servers" class="tab-content">
+  <h2 class="section-title">Search Rust Servers</h2>
+
+  <div class="server-search-bar">
+    <input type="text" id="server-search-input" placeholder="Enter server name or IP">
+    <button id="search-server-button">Search</button>
+  </div>
+
+  <div id="search-results"></div>
+  <div id="server-details"></div>
+</section>
+
+
+
+
+
+
     <section id="commits" class="tab-content" style="display:none">
       <h3 class="section-title">Commits</h3>
       <div id="commits-loading" class="ring">Loading<span></span></div>
@@ -87,5 +105,6 @@
   </main>
 
   <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/bm.js"></script>
 </body>
 </html>
