@@ -3,7 +3,7 @@ const searchButton = document.getElementById('search-server-button');
 const resultsContainer = document.getElementById('search-results');
 const detailsContainer = document.getElementById('server-details');
 
-searchButton.addEventListener('click', async () => {
+async function searchServers() {
   const query = searchInput.value.trim();
   if (!query) return;
 
@@ -31,15 +31,36 @@ searchButton.addEventListener('click', async () => {
     resultsContainer.innerHTML = 'Error searching for servers.';
     console.error(err);
   }
+}
+
+searchButton.addEventListener('click', searchServers);
+
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    searchServers();
+  }
 });
 
 function showServerInfo(server) {
   const attr = server.attributes;
+  const details = attr.details || {};
+  const serverName = attr.name;
+
+  const wipeRaw = details.rust_last_wipe;
+  const wipeDate = wipeRaw ? new Date(wipeRaw) : null;
+  const formattedWipe = wipeDate ? wipeDate.toLocaleString('en-US', {
+    dateStyle: 'long',
+    timeStyle: 'short',
+    timeZone: 'EST'
+  }) + ' EST' : 'Unknown';
+
+  const detailsContainer = document.getElementById('server-details');
   detailsContainer.innerHTML = `
     <h3>${attr.name}</h3>
     <p><strong>Player Count:</strong> ${attr.players}/${attr.maxPlayers}</p>
     <p><strong>Address:</strong> ${attr.ip}:${attr.port}</p>
     <p><strong>Status:</strong> ${attr.status}</p>
-    <p><strong>Last Wipe:</strong> ${attr.details.rust_last_wipe || 'Unknown'}</p>
+    <p><strong>Last Wipe:</strong> ${formattedWipe}</p>
   `;
 }
+

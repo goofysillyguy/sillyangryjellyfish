@@ -406,7 +406,23 @@ header {
   padding: 10px;
 }
 
+.server-details img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
 
+.server-details h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.server-details p {
+  margin: 5px 0;
+  font-size: 1em;
+}
 
 /* Commits Section */
 #commits-list {

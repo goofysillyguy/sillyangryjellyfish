@@ -1,0 +1,22 @@
+# Node modules (standard)
+node_modules/
+
+# Local environment secrets
+.dev.vars
+
+# Wrangler state and local DB info
+.wrangler/
+wrangler.toml
+/wrangler/
+
+# Backend data and assets (sensitive + large)
+/backend/data/images/
+/backend/data/jsons/
+/backend/schema.sql
+
+# VSCode + OS metadata (optional but good practice)
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
