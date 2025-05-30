@@ -1,33 +1,50 @@
-import { DB } from '@cloudflare/d1';
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import fs from 'fs/promises';
+import path from 'path';
+import { open } from 'sqlite';
+import sqlite3 from 'sqlite3';
 
-export default {
-  async fetch(request, env, ctx) {
-    const db = env.DB;
-    const jsonDir = './backend/data/jsons';
+const db = await open({
+  filename: '.wrangler/state/v3/d1/miniflare-D1DatabaseObject/rust_items_db.sqlite',
+  driver: sqlite3.Database
+});
 
-    const files = await fs.readdir(jsonDir);
-    for (const file of files) {
-      if (!file.endsWith('.json')) continue;
+const jsonDir = path.join('backend', 'data', 'jsons');
 
-      const content = await fs.readFile(path.join(jsonDir, file), 'utf-8');
-      const items = JSON.parse(content);
+const files = await fs.readdir(jsonDir);
 
-      for (const category of items) {
-        const categoryName = category.category;
-        for (const item of category.items || []) {
-          const name = item.name;
-          const url = item.url;
-          const meta = JSON.stringify(item.meta);
-          await db
-            .prepare("INSERT INTO items (name, url, category, meta) VALUES (?, ?, ?, ?)")
-            .bind(name, url, categoryName, meta)
-            .run();
-        }
-      }
+for (const file of files) {
+  const tableName = path.basename(file, '.json');
+  const filePath = path.join(jsonDir, file);
+  const content = await fs.readFile(filePath, 'utf8');
+
+  let data;
+  try {
+    data = JSON.parse(content);
+  } catch (err) {
+    console.error(`❌ Failed to parse ${file}:`, err.message);
+    continue;
+  }
+
+  if (!Array.isArray(data)) {
+    console.warn(`⚠️ Skipping ${file}: expected an array of objects`);
+    continue;
+  }
+
+  console.log(`📥 Importing ${file} (${data.length} entries) → table '${tableName}'`);
+
+  for (const entry of data) {
+    const keys = Object.keys(entry);
+    const values = Object.values(entry);
+
+    const placeholders = keys.map(() => '?').join(', ');
+    const sql = `INSERT INTO ${tableName} (${keys.join(', ')}) VALUES (${placeholders})`;
+
+    try {
+      await db.run(sql, values);
+    } catch (err) {
+      console.error(`❌ Failed to insert into ${tableName}:`, err.message);
     }
+  }
+}
 
-    return new Response("✅ Data import complete!", { status: 200 });
-  },
-};
+console.log('✅ Import complete.');
